@@ -1,0 +1,20 @@
+19:52:35 **** Incremental Build of configuration Debug for project SDK_LED ****
+make all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "SDK_LED.elf" @"objects.list"   -mcpu=cortex-m4 -T"../STM32F407VGTx_FLASH.ld" --specs=nosys.specs -Wl,-Map="SDK_LED.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SDK_LED.elf
+ 
+arm-none-eabi-objdump -h -S  SDK_LED.elf  > "SDK_LED.list"
+Finished building: SDK_LED.list
+ 
+arm-none-eabi-objcopy  -O ihex  SDK_LED.elf  "SDK_LED.hex"
+Finished building: SDK_LED.hex
+ 
+arm-none-eabi-size   SDK_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4736	     20	   1572	   6328	   18b8	SDK_LED.elf
+Finished building: default.size.stdout
+ 
+
+19:52:36 Build Finished. 0 errors, 0 warnings. (took 1s.463ms)
+
